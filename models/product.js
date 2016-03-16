@@ -21,6 +21,7 @@ var Product = function(data){
     skuId: data.sku || "",
     name: data.nome || "",
     slug: data.apelido || "",
+    type: data.tipo || "",
     description: data.descricao_completa || "",
     resource_uri: data.resource_uri,
     brand: getBrandId(data.marca),
