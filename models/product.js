@@ -1,3 +1,5 @@
+var _ = require('underscore');
+
 var Product = function(data){
   var getCategoryId = function(categories){
     if (categories && categories.length){
@@ -11,6 +13,14 @@ var Product = function(data){
       brand = brand.split("/");
       return brand[brand.length-1];
     }
+  };
+  var mapImages = function(images, name){
+    return _.map(images, function(image){
+      return {
+        url: 'http://cdn.awsli.com.br/' + image.caminho,
+        name: name
+      }
+    });
   };
   var product;
   data = data || {};
@@ -26,7 +36,7 @@ var Product = function(data){
     resource_uri: data.resource_uri,
     brand: getBrandId(data.marca),
     categoryId: getCategoryId(data.categorias),
-    images: [],
+    images: mapImages(data.imagens, data.nome),
     weight: data.peso || 0,
     height: data.altura || 0,
     width: data.largura || 0,
