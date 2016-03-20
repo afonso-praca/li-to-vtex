@@ -37,13 +37,13 @@ var Product = function(data){
     brand: getBrandId(data.marca),
     categoryId: getCategoryId(data.categorias),
     images: mapImages(data.imagens, data.nome),
-    weight: data.peso || 0,
+    weight: data.peso ? (Number(data.peso) * 1000) : 0,
     height: data.altura || 0,
     width: data.largura || 0,
     depth: data.profundidade || 0,
-    listPrice: 9999,
-    price: 9999,
-    costPrice: 9999
+    listPrice: 9999, // will be populated later
+    price: 9999, // will be populated later
+    costPrice: 9999 // will be populated later
   };
   return product
 };
