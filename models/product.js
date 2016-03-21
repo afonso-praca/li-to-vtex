@@ -14,6 +14,13 @@ var Product = function(data){
       return brand[brand.length-1];
     }
   };
+  var getParentId = function(parent){
+    if (parent){
+      parent = parent.split("/");
+      return parent[parent.length-1];
+    }
+    return null;
+  };
   var mapImages = function(images, name){
     return _.map(images, function(image){
       return {
@@ -32,6 +39,7 @@ var Product = function(data){
     name: data.nome || "",
     slug: data.apelido || "",
     type: data.tipo || "",
+    parentId: getParentId(data.pai),
     description: data.descricao_completa || "",
     resource_uri: data.resource_uri,
     brand: getBrandId(data.marca),
