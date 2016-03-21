@@ -43,7 +43,8 @@ var Product = function(data){
     depth: data.profundidade || 0,
     listPrice: 9999, // will be populated later
     price: 9999, // will be populated later
-    costPrice: 9999 // will be populated later
+    costPrice: 9999, // will be populated later
+    quantity: 0 // will be populated later
   };
   return product
 };
