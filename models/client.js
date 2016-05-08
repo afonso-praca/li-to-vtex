@@ -12,7 +12,7 @@ var Client = function(data){
   var client;
   data = data || {};
   client = {
-    id: data.id,
+    //id: data.id,
     firstName: getFirstName(data.nome),
     lastName: getLastName(data.nome),
     gender: data.sexo,
@@ -28,8 +28,8 @@ var Client = function(data){
     isNewsletterOptIn: data.aceita_newsletter,
     phone: data.telefone_celular,
     stateRegistration: data.ie,
-    tradeName: data.razao_social,
-    userId: data.id
+    tradeName: data.razao_social
+    //userId: data.id
   };
   return client;
 };

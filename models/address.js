@@ -6,6 +6,7 @@ var Address = function(data){
   var address;
   data = data || {};
   address = {
+    addressName: "Endereço Principal",
     addressType: "residential",
     city: data.cidade,
     complement: data.complemento,
@@ -16,8 +17,7 @@ var Address = function(data){
     receiverName: data.nome,
     reference: data.referencia,
     state: data.estado,
-    street: data.endereco,
-    userId: data.userId
+    street: data.endereco
   };
   return address;
 };
