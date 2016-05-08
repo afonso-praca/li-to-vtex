@@ -15,4 +15,10 @@ router.get('/api/migrate', function(req, res){
   //vtexwriter.startVtexWrite();
 });
 
+router.get('/api/clients', function(req, res){
+  console.log('clients migration started');
+  migrator.migrateClients();
+  res.send('clients migration started');
+});
+
 module.exports = router;
