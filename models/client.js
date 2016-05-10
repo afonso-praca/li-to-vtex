@@ -8,28 +8,36 @@ var getLastName = function(name){
   return lastName.join(" ");
 };
 
+var getPrimaryPhone = function(data){
+  if (data.telefone_celular && data.telefone_celular.length)
+    return data.telefone_celular;
+  if (data.telefone_principal && data.telefone_principal.length)
+    return data.telefone_principal;
+  if (data.telefone_comercial && data.telefone_comercial.length)
+    return data.telefone_comercial;
+  return "";
+};
+
 var Client = function(data){
   var client;
   data = data || {};
   client = {
-    //id: data.id,
     firstName: getFirstName(data.nome),
     lastName: getLastName(data.nome),
     gender: data.sexo,
     birthDate: data.data_nascimento,
-    businessPhone: data.telefone_comercial,
+    businessPhone: "",
     corporateDocument: data.cnpj,
     corporateName: data.razao_social,
     document: data.cpf,
     documentType: "cpf",
     email: data.email,
-    homePhone: data.telefone_principal,
+    homePhone: getPrimaryPhone(data),
     isCorporate: data.tipo != "PF",
     isNewsletterOptIn: data.aceita_newsletter,
-    phone: data.telefone_celular,
+    phone: "",
     stateRegistration: data.ie,
     tradeName: data.razao_social
-    //userId: data.id
   };
   return client;
 };
